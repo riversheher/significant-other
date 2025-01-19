@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://couwlit3b5tu8"]
+
+[ext_resource type="Script" path="res://Scenes/level.gd" id="1_4w3bu"]
+[ext_resource type="PackedScene" uid="uid://bdmralx81s3is" path="res://Scenes/Bedroom/bedroom.tscn" id="2_0d5mo"]
+[ext_resource type="PackedScene" uid="uid://bpqb1ce8yhqyq" path="res://Scenes/Player/player_spawn.tscn" id="3_026hd"]
+[ext_resource type="PackedScene" uid="uid://bg6gn5gjma8g8" path="res://Scenes/Transition/level_transition.tscn" id="5_t2fa1"]
+
+[node name="BedroomLVL" type="Node2D"]
+script = ExtResource("1_4w3bu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0.0784314, 0.0666667, 0.0588235, 1)
+
+[node name="Bedroom" parent="." instance=ExtResource("2_0d5mo")]
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_026hd")]
+position = Vector2(461, 371)
+
+[node name="bdrm_lvgrm" parent="." instance=ExtResource("5_t2fa1")]
+position = Vector2(600, 526)
+collision_layer = 0
+level = "res://Scenes/Levels/LivingroomLVL/LivingroomLVL.tscn"
+target_trans_area = "lvgrm_bdrm"
+size = 1

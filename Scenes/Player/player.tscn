@@ -1080,7 +1080,11 @@ animations = [{
 height = 36.0
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -32)
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_bhina")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fvu3p")

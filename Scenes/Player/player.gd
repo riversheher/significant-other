@@ -114,3 +114,6 @@ func process_movement() -> void:
 			velocity = movement * RUN_SPEED
 		else:
 			velocity = movement * WALK_SPEED
+			
+func reset_state() -> void:
+	state = "idle"

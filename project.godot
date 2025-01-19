@@ -14,6 +14,12 @@ config/name="Significant Other"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerManager="*res://_Globals/player_manager.gd"
+LevelManager="*res://_Globals/level_manager.gd"
+SceneTransition="*res://Scenes/Transition/scene_transition.tscn"
+
 [display]
 
 window/size/viewport_width=960
@@ -50,7 +56,9 @@ run={
 
 [layer_names]
 
-2d_physics/layer_5="walls"
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Player"
+2d_physics/layer_5="Objects"
 
 [rendering]
 

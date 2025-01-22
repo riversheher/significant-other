@@ -1,9 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://couwlit3b5tu8"]
+[gd_scene load_steps=9 format=3 uid="uid://couwlit3b5tu8"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_4w3bu"]
 [ext_resource type="PackedScene" uid="uid://bdmralx81s3is" path="res://Scenes/Bedroom/bedroom.tscn" id="2_0d5mo"]
 [ext_resource type="PackedScene" uid="uid://bpqb1ce8yhqyq" path="res://Scenes/Player/player_spawn.tscn" id="3_026hd"]
 [ext_resource type="PackedScene" uid="uid://bg6gn5gjma8g8" path="res://Scenes/Transition/level_transition.tscn" id="5_t2fa1"]
+
+[sub_resource type="Gradient" id="Gradient_gjio4"]
+offsets = PackedFloat32Array(0, 0.214286, 0.62987)
+colors = PackedColorArray(1, 1, 1, 1, 0.580073, 0.474362, 0.252096, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3i3u"]
+gradient = SubResource("Gradient_gjio4")
+width = 384
+height = 384
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_8ai27"]
+offsets = PackedFloat32Array(0, 0.214286, 0.915584)
+colors = PackedColorArray(1, 1, 1, 1, 0.764191, 0.324705, 0.387657, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mapcb"]
+gradient = SubResource("Gradient_8ai27")
+width = 384
+height = 384
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="BedroomLVL" type="Node2D"]
 script = ExtResource("1_4w3bu")
@@ -24,3 +48,15 @@ collision_layer = 0
 level = "res://Scenes/Levels/LivingroomLVL/LivingroomLVL.tscn"
 target_trans_area = "lvgrm_bdrm"
 size = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(502, 224)
+texture = SubResource("GradientTexture2D_a3i3u")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(359, 228)
+texture = SubResource("GradientTexture2D_mapcb")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.282733, 0.247315, 0.23368, 1)
+blend_mode = 2

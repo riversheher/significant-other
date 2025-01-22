@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp60kjyrxpqap"
-path="res://.godot/imported/Room.png-a7bbcc99842ac615fd6690c69a72e1c5.ctex"
+uid="uid://5r1d7kecyp0e"
+path="res://.godot/imported/A5_Hotel.png-76d297f9782dd26d30c2489b29d3ce5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Room.png"
-dest_files=["res://.godot/imported/Room.png-a7bbcc99842ac615fd6690c69a72e1c5.ctex"]
+source_file="res://Assets/Tilemaps/Horror Hotel/A5_Hotel.png"
+dest_files=["res://.godot/imported/A5_Hotel.png-76d297f9782dd26d30c2489b29d3ce5b.ctex"]
 
 [params]
 

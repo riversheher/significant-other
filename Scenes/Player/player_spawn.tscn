@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://Scenes/Player/player_spawn.gd" id="1_t7grw"]
 
 [node name="PlayerSpawn" type="Node2D"]
-position = Vector2(0, -31)
 script = ExtResource("1_t7grw")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.302913, 0.715059, 0.510438, 1)
+position = Vector2(0, -33)
 texture = ExtResource("1_m5svu")
 hframes = 12
 vframes = 4

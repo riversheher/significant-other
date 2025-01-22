@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://dka8yfdfldhw0"]
+[gd_scene load_steps=13 format=3 uid="uid://dka8yfdfldhw0"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_gg4j5"]
 [ext_resource type="PackedScene" uid="uid://2lfn2j1xsa6y" path="res://Scenes/Livingroom/livingroom.tscn" id="2_motqd"]
 [ext_resource type="PackedScene" uid="uid://bpqb1ce8yhqyq" path="res://Scenes/Player/player_spawn.tscn" id="3_3w0ng"]
 [ext_resource type="PackedScene" uid="uid://bg6gn5gjma8g8" path="res://Scenes/Transition/level_transition.tscn" id="3_hw0es"]
+[ext_resource type="PackedScene" uid="uid://3a18q40nn7lc" path="res://Scenes/TV/TV.tscn" id="3_uv3kp"]
+[ext_resource type="Script" path="res://Scenes/TV/tv.gd" id="4_d2eac"]
+[ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="7_mpgb0"]
+[ext_resource type="Texture2D" uid="uid://bk4nuuhdfwbes" path="res://Assets/Items/white_cheese_piece.png" id="8_ab273"]
+
+[sub_resource type="Gradient" id="Gradient_jtrua"]
+offsets = PackedFloat32Array(0, 0.214286, 0.62987)
+colors = PackedColorArray(1, 1, 1, 1, 0.580073, 0.474362, 0.252096, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p7blc"]
+gradient = SubResource("Gradient_jtrua")
+width = 384
+height = 384
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_tydl1"]
+offsets = PackedFloat32Array(0, 0.214286, 0.62987)
+colors = PackedColorArray(1, 1, 1, 1, 0.580073, 0.474362, 0.252096, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_at4qo"]
+gradient = SubResource("Gradient_tydl1")
+width = 480
+height = 480
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="LivingroomLVL" type="Node2D"]
 script = ExtResource("1_gg4j5")
@@ -15,6 +43,10 @@ color = Color(0.0784314, 0.0666667, 0.0588235, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Livingroom" parent="." instance=ExtResource("2_motqd")]
+
+[node name="TV" parent="." instance=ExtResource("3_uv3kp")]
+position = Vector2(600, 408)
+script = ExtResource("4_d2eac")
 
 [node name="lvgrm_bdrm" parent="." instance=ExtResource("3_hw0es")]
 position = Vector2(792, 428)
@@ -43,3 +75,32 @@ size = 1
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_3w0ng")]
 position = Vector2(789, 459)
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="inventory_item" parent="Interactables" instance=ExtResource("7_mpgb0")]
+position = Vector2(407, 516)
+scale = Vector2(0.5, 0.5)
+item_name = "cheese"
+item_effect = ""
+item_texture = ExtResource("8_ab273")
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lighting"]
+color = Color(0.153948, 0.131537, 0.122907, 1)
+blend_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="Lighting"]
+position = Vector2(670, 414)
+texture = SubResource("GradientTexture2D_p7blc")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lighting"]
+position = Vector2(447, 66)
+energy = 0.6
+texture = SubResource("GradientTexture2D_at4qo")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lighting"]
+position = Vector2(465, 68)
+energy = 0.6
+texture = SubResource("GradientTexture2D_at4qo")

@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://c074vuv15l46e"]
 
-[ext_resource type="Texture2D" uid="uid://cp60kjyrxpqap" path="res://Assets/Tilemaps/Room.png" id="1_gbn51"]
-[ext_resource type="Texture2D" uid="uid://dabj5py1rlo7p" path="res://Assets/Tilemaps/Bathroom.png" id="2_2nl5p"]
-[ext_resource type="Texture2D" uid="uid://bgd5jk824b77w" path="res://Assets/Tilemaps/Bonus Rugs.png" id="3_1uidc"]
-[ext_resource type="Texture2D" uid="uid://bks5ytreo051g" path="res://Assets/Tilemaps/Kitchen.png" id="4_1l78g"]
-[ext_resource type="Texture2D" uid="uid://bg1jwux3wbm" path="res://Assets/Tilemaps/Living Room.png" id="5_6tx4v"]
+[ext_resource type="Texture2D" uid="uid://cp60kjyrxpqap" path="res://Assets/Tilemaps/Modern+/Room.png" id="1_6f05s"]
+[ext_resource type="Texture2D" uid="uid://dabj5py1rlo7p" path="res://Assets/Tilemaps/Modern+/Bathroom.png" id="2_0eq2q"]
+[ext_resource type="Texture2D" uid="uid://bgd5jk824b77w" path="res://Assets/Tilemaps/Modern+/Bonus Rugs.png" id="3_0davr"]
+[ext_resource type="Texture2D" uid="uid://bks5ytreo051g" path="res://Assets/Tilemaps/Modern+/Kitchen.png" id="4_dauq6"]
+[ext_resource type="Texture2D" uid="uid://bg1jwux3wbm" path="res://Assets/Tilemaps/Modern+/Living Room.png" id="5_4207g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ylsr"]
-texture = ExtResource("1_gbn51")
+texture = ExtResource("1_6f05s")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 1:0/0 = 0
@@ -1293,7 +1293,7 @@ texture_region_size = Vector2i(24, 24)
 31:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0ecj"]
-texture = ExtResource("2_2nl5p")
+texture = ExtResource("2_0eq2q")
 texture_region_size = Vector2i(24, 24)
 2:0/0 = 0
 3:0/0 = 0
@@ -2148,7 +2148,7 @@ texture_region_size = Vector2i(24, 24)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yja4r"]
-texture = ExtResource("3_1uidc")
+texture = ExtResource("3_0davr")
 texture_region_size = Vector2i(24, 24)
 2:0/0 = 0
 3:0/0 = 0
@@ -2916,7 +2916,7 @@ texture_region_size = Vector2i(24, 24)
 23:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5hcl"]
-texture = ExtResource("4_1l78g")
+texture = ExtResource("4_dauq6")
 texture_region_size = Vector2i(24, 24)
 3:0/0 = 0
 4:0/0 = 0
@@ -3715,7 +3715,7 @@ texture_region_size = Vector2i(24, 24)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8cbci"]
-texture = ExtResource("5_6tx4v")
+texture = ExtResource("5_4207g")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 1:0/0 = 0

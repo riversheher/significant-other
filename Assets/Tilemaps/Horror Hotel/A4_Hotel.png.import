@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvgf260b78q0g"
-path="res://.godot/imported/A4 - Walls B.png-2af7478955a7a10cab9807b653d78934.ctex"
+uid="uid://cfq5wp7p3asgy"
+path="res://.godot/imported/A4_Hotel.png-ed33f97286a95d30fd10a9524e8d0b6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/A4 - Walls B.png"
-dest_files=["res://.godot/imported/A4 - Walls B.png-2af7478955a7a10cab9807b653d78934.ctex"]
+source_file="res://Assets/Tilemaps/Horror Hotel/A4_Hotel.png"
+dest_files=["res://.godot/imported/A4_Hotel.png-ed33f97286a95d30fd10a9524e8d0b6f.ctex"]
 
 [params]
 

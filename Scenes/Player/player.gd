@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 @export var state: String = "idle"
 @export var direction: String = "front"
 
+@onready var interact_ui: CanvasLayer = $InteractUI
+
 # pressed_keys keeps track of which keys are currently pressed, and is used to determine
 # the player's state.
 # The keys are the names of the actions, and the values are the priority of the actions based on
@@ -14,6 +16,8 @@ var pressed_keys: Dictionary = {}
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "idle_front"
 	$AnimatedSprite2D.play()
+	
+	InventoryManager.set_player_reference(self)
 
 func _physics_process(delta: float) -> void:
 	process_movement()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg1jwux3wbm"
-path="res://.godot/imported/Living Room.png-692d11a64cd4f918969d36dbd1af24d9.ctex"
+uid="uid://dbd0rl6de4ilf"
+path="res://.godot/imported/Bonus_2.png-624b5362eec2543e633795fe439e42fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Living Room.png"
-dest_files=["res://.godot/imported/Living Room.png-692d11a64cd4f918969d36dbd1af24d9.ctex"]
+source_file="res://Assets/Tilemaps/Horror Hotel/Bonus_2.png"
+dest_files=["res://.godot/imported/Bonus_2.png-624b5362eec2543e633795fe439e42fe.ctex"]
 
 [params]
 

@@ -1,5 +1,6 @@
 extends Node
 
+## Level Loading
 # emitted when level begins loading
 signal level_load_started
 # emitted when level is finished loading
@@ -10,15 +11,16 @@ var target_trans: String
 # Where to place the player in the new scene
 var player_pos_offset: Vector2
 
+## Camera Settings
+signal map_bounds_changed(bounds: Dictionary)
+# A dictionary of String: Vector2, which stores the corner of the bounds.
+# "top left" and "bottom right" are expected
+var curr_map_bounds: Dictionary
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func change_map_bounds(bounds: Dictionary) -> void:
+	curr_map_bounds = bounds
+	map_bounds_changed.emit(bounds)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func place_player_on_trans() -> void:
 	var trans_area: LevelTransition = get_tree().get_current_scene().get_node(target_trans)

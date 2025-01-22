@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://y2gwdu4qr5n2"]
 
-[ext_resource type="Texture2D" uid="uid://cvgf260b78q0g" path="res://Assets/Tilemaps/A4 - Walls B.png" id="1_p7wn4"]
-[ext_resource type="Texture2D" uid="uid://cmsxqeqyo17nf" path="res://Assets/Tilemaps/A4 - Walls.png" id="2_jnlyv"]
-[ext_resource type="Texture2D" uid="uid://cgy10ruj5nk50" path="res://Assets/Tilemaps/A5.png" id="3_f75hh"]
+[ext_resource type="Texture2D" uid="uid://cvgf260b78q0g" path="res://Assets/Tilemaps/Modern+/A4 - Walls B.png" id="1_p7wn4"]
+[ext_resource type="Texture2D" uid="uid://cmsxqeqyo17nf" path="res://Assets/Tilemaps/Modern+/A4 - Walls.png" id="2_jnlyv"]
+[ext_resource type="Texture2D" uid="uid://cgy10ruj5nk50" path="res://Assets/Tilemaps/Modern+/A5.png" id="3_f75hh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84fje"]
 texture = ExtResource("1_p7wn4")

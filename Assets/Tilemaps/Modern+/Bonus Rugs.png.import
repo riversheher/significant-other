@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dabj5py1rlo7p"
-path="res://.godot/imported/Bathroom.png-a87049199d85f2f77982455df2f98298.ctex"
+uid="uid://bgd5jk824b77w"
+path="res://.godot/imported/Bonus Rugs.png-7e94df39df09327d742f1b16ea4c9476.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Bathroom.png"
-dest_files=["res://.godot/imported/Bathroom.png-a87049199d85f2f77982455df2f98298.ctex"]
+source_file="res://Assets/Tilemaps/Modern+/Bonus Rugs.png"
+dest_files=["res://.godot/imported/Bonus Rugs.png-7e94df39df09327d742f1b16ea4c9476.ctex"]
 
 [params]
 

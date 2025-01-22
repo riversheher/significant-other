@@ -1,9 +1,10 @@
-[gd_scene load_steps=151 format=3 uid="uid://dxk3u6q6cf2gb"]
+[gd_scene load_steps=152 format=3 uid="uid://dxk3u6q6cf2gb"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_bhina"]
 [ext_resource type="Texture2D" uid="uid://doagx744hq6cq" path="res://Assets/Female/Female_I.png" id="1_udpvw"]
 [ext_resource type="Texture2D" uid="uid://v2ctkr5xvgjl" path="res://Assets/Female/Female_W.png" id="2_hn1t8"]
 [ext_resource type="Texture2D" uid="uid://dy5qxkexdf315" path="res://Assets/Female/Female_R.png" id="3_enk5j"]
+[ext_resource type="Script" path="res://Scenes/Player/player_camera.gd" id="5_ocy0f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdicp"]
 atlas = ExtResource("1_udpvw")
@@ -1079,20 +1080,42 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cixh2"]
 height = 36.0
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -32)
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 17
+motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_bhina")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_fvu3p")
 animation = &"run_front"
 frame = 5
 frame_progress = 0.365242
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cixh2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 720
+editor_draw_limits = true
+script = ExtResource("5_ocy0f")
+
+[node name="InteractUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="InteractUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "e"

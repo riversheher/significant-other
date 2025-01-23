@@ -1,13 +1,13 @@
 @tool
 extends Node2D
 
-@export var item_type: String = ""
+@export var item_description: String = ""
 @export var item_name: String = ""
 @export var item_effect: String = ""
 @export var item_texture: Texture
 var scene_path: String = "res://Scenes/InventoryItem/inventory_item.gd"
 
-@onready var icon_sprite = $Sprite2D
+@onready var icon_sprite: Sprite2D = $Sprite2D
 
 var player_in_range: bool = false
 
@@ -30,9 +30,9 @@ func pickup_item() -> void:
 	var item = {
 		# Amount of the item that will be added to inventory.  For purpose of this game, doesn't matter
 		"quantity": 1,
-		"type": item_type,
 		"name": item_name,
 		"effect": item_effect,
+		"description": item_description,
 		"texture": item_texture,
 		"scene_path": scene_path
 	}
@@ -43,11 +43,11 @@ func pickup_item() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.interact_ui.visible = true
+		body.interact_sprite.visible = true
 		player_in_range = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.interact_ui.visible = false
+		body.interact_sprite.visible = false
 		player_in_range = false

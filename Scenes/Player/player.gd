@@ -5,7 +5,8 @@ class_name Player extends CharacterBody2D
 @export var state: String = "idle"
 @export var direction: String = "front"
 
-@onready var interact_ui: CanvasLayer = $InteractUI
+@onready var inv_ui: CanvasLayer = $InvUI
+@onready var interact_sprite: Sprite2D = $interact_sprite
 
 # pressed_keys keeps track of which keys are currently pressed, and is used to determine
 # the player's state.

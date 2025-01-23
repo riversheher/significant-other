@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=4 uid="uid://ck2if4a5s1n38"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/Inventory/inventory_slot.gd" id="1_yh0ve"]
+[ext_resource type="TileSet" uid="uid://dhi63crwlo8kl" path="res://Scenes/Tilemaps/inventory.tres" id="2_8ll02"]
+[ext_resource type="Texture2D" uid="uid://bk4nuuhdfwbes" path="res://Assets/Items/white_cheese_piece.png" id="3_pq5j6"]
+[ext_resource type="FontFile" uid="uid://b0u46jqlornir" path="res://Assets/Fonts/GoMono/GoMonoNerdFont-Bold.ttf" id="4_2a8vm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k421e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apu42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5tq7"]
+font = ExtResource("4_2a8vm")
+font_size = 14
+font_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6l4gt"]
+font = ExtResource("4_2a8vm")
+font_size = 10
+font_color = Color(0.0745098, 0.0745098, 0.0745098, 0.784314)
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -904.0
+offset_bottom = -664.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yh0ve")
+
+[node name="ItemPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ItemPanel"]
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAAAAAAAQAFAAIAAAA=")
+tile_set = ExtResource("2_8ll02")
+
+[node name="ItemIcon" type="Sprite2D" parent="ItemPanel"]
+position = Vector2(24, 24)
+texture = ExtResource("3_pq5j6")
+
+[node name="ItemButton" type="Button" parent="ItemPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k421e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_apu42")
+toggle_mode = true
+keep_pressed_outside = true
+
+[node name="DetailsPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 48.0
+offset_right = 160.0
+offset_bottom = 176.0
+
+[node name="DetailsPanelTiles" type="TileMapLayer" parent="DetailsPanel"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAcAAAABAAAAAQABAAcAAAACAAAAAQACAAcAAAAAAAEAAQAAAAoAAAAAAAIAAQAAAAsAAAABAAIAAQABAAsAAAACAAIAAQACAAsAAAABAAEAAQACAAoAAAACAAEAAQADAAoAAAADAAAAAQADAAcAAAADAAEAAQADAAgAAAAEAAAAAQAEAAcAAAAEAAEAAQAEAAgAAAADAAIAAQADAAsAAAAEAAIAAQAEAAsAAAA=")
+tile_set = ExtResource("2_8ll02")
+
+[node name="ItemName" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 61.0
+offset_bottom = 26.0
+text = "Cheese
+"
+label_settings = SubResource("LabelSettings_u5tq7")
+
+[node name="ItemDescription" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078125
+anchor_top = 0.226562
+anchor_right = 0.9375
+anchor_bottom = 0.695312
+grow_vertical = 2
+text = "Looks like River didn't eat her cheese block like I told her to..."
+label_settings = SubResource("LabelSettings_6l4gt")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="ItemPanel/ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemPanel/ItemButton" to="." method="_on_item_button_mouse_exited"]
+[connection signal="pressed" from="ItemPanel/ItemButton" to="." method="_on_item_button_pressed"]

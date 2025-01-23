@@ -4,6 +4,10 @@ extends Node
 var inventory: Array = []
 var player_node: Node = null
 
+var selected_item: Dictionary = {}
+
+@onready var inventory_slot_scene: Resource = preload("res://Scenes/GUI/Inventory/inventory_slot.tscn")
+
 signal inventory_updated
 signal inventory_duplicate
 signal inventory_full
@@ -30,11 +34,14 @@ func add_item(item) -> bool:
 	return false
 
 # removes item to inventory
-func remove_item(item: Dictionary) -> bool:
-	var removed = false
+func remove_item(to_remove: Dictionary) -> bool:
+	for i in range(inventory.size()):
+		if inventory[i] != null and inventory[i]["name"] == to_remove["name"]:
+			inventory.remove_at(i)
+			inventory_updated.emit()
+			return true
 	
-	inventory_updated.emit()
-	return removed
+	return false
 
 # sets the player_node
 func set_player_reference(player: Node):

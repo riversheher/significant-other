@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://couwlit3b5tu8"]
+[gd_scene load_steps=11 format=3 uid="uid://couwlit3b5tu8"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_4w3bu"]
 [ext_resource type="PackedScene" uid="uid://bdmralx81s3is" path="res://Scenes/Bedroom/bedroom.tscn" id="2_0d5mo"]
 [ext_resource type="PackedScene" uid="uid://bpqb1ce8yhqyq" path="res://Scenes/Player/player_spawn.tscn" id="3_026hd"]
+[ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="5_3sm1f"]
 [ext_resource type="PackedScene" uid="uid://bg6gn5gjma8g8" path="res://Scenes/Transition/level_transition.tscn" id="5_t2fa1"]
+[ext_resource type="Texture2D" uid="uid://kufl0l26bkdm" path="res://Assets/Items/00.png" id="6_lc48r"]
 
 [sub_resource type="Gradient" id="Gradient_gjio4"]
 offsets = PackedFloat32Array(0, 0.214286, 0.62987)
@@ -49,14 +51,26 @@ level = "res://Scenes/Levels/LivingroomLVL/LivingroomLVL.tscn"
 target_trans_area = "lvgrm_bdrm"
 size = 1
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="ckey" parent="Interactables" instance=ExtResource("5_3sm1f")]
+modulate = Color(0.431373, 0.431373, 0.431373, 0.666667)
+position = Vector2(627, 403)
+scale = Vector2(0.5, 0.5)
+item_description = "A key really important to River... I better keep it in a safe place."
+item_name = "River's Key"
+item_texture = ExtResource("6_lc48r")
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lighting"]
+color = Color(0.282733, 0.247315, 0.23368, 1)
+blend_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="Lighting"]
 position = Vector2(502, 224)
 texture = SubResource("GradientTexture2D_a3i3u")
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="Lighting"]
 position = Vector2(359, 228)
 texture = SubResource("GradientTexture2D_mapcb")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.282733, 0.247315, 0.23368, 1)
-blend_mode = 2

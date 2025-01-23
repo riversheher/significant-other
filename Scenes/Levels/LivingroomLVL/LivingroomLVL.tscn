@@ -81,8 +81,8 @@ position = Vector2(789, 459)
 [node name="inventory_item" parent="Interactables" instance=ExtResource("7_mpgb0")]
 position = Vector2(407, 516)
 scale = Vector2(0.5, 0.5)
-item_name = "cheese"
-item_effect = ""
+item_description = "Looks like River didn't eat her cheese block like I told her to..."
+item_name = "Cheese"
 item_texture = ExtResource("8_ab273")
 
 [node name="Lighting" type="Node2D" parent="."]

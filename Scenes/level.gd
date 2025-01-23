@@ -1,5 +1,6 @@
 class_name Level extends Node2D
 
+@onready var interactables_node: Node2D = $Interactables
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

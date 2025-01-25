@@ -48,3 +48,5 @@ blend_mode = 2
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
 position = Vector2(506, 215)
 texture = SubResource("GradientTexture2D_s2363")
+
+[node name="Interactables" type="Node2D" parent="."]

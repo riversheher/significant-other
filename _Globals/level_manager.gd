@@ -47,6 +47,7 @@ func load_new_level(
 	get_tree().paused = true
 	target_trans = t_trans
 	
+	AudioPlayer.play_FX(AudioPlayer.door_open, -2.0)
 	await SceneTransition.transition_out("fade_out")
 	
 	level_load_started.emit()
@@ -59,6 +60,7 @@ func load_new_level(
 	# place player right below/above/beside target transition area
 	place_player_on_trans()
 	
+	AudioPlayer.play_FX(AudioPlayer.door_close, -2.0)
 	await SceneTransition.transition_in("fade_in")
 	level_loaded.emit()
 	

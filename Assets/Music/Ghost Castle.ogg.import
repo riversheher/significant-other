@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cuj2txl4rhv6c"
+path="res://.godot/imported/Ghost Castle.ogg-d0f8399f786018f54153850026ae2a0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Ghost Castle.ogg"
+dest_files=["res://.godot/imported/Ghost Castle.ogg-d0f8399f786018f54153850026ae2a0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

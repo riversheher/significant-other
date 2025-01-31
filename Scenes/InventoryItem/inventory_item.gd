@@ -4,6 +4,7 @@ extends Node2D
 @export var item_description: String = ""
 @export var item_name: String = ""
 @export var item_effect: String = ""
+@export var pickup_message: String = ""
 @export var item_texture: Texture
 var scene_path: String = "res://Scenes/InventoryItem/inventory_item.gd"
 
@@ -38,6 +39,7 @@ func pickup_item() -> void:
 	}
 	if InventoryManager.player_node:
 		InventoryManager.add_item(item)
+		InventoryManager.change_thought(pickup_message)
 		self.queue_free()
 
 

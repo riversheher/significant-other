@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 
+	
 	var is_running: bool = Input.is_action_pressed("run")
 	
 	# Set the state of the character based on which key has just been pressed
@@ -121,4 +122,5 @@ func process_movement() -> void:
 			velocity = movement * WALK_SPEED
 			
 func reset_state() -> void:
+	pressed_keys = {}
 	state = "idle"

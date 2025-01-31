@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dka8yfdfldhw0"]
+[gd_scene load_steps=14 format=3 uid="uid://dka8yfdfldhw0"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_gg4j5"]
 [ext_resource type="PackedScene" uid="uid://2lfn2j1xsa6y" path="res://Scenes/Livingroom/livingroom.tscn" id="2_motqd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3a18q40nn7lc" path="res://Scenes/TV/TV.tscn" id="3_uv3kp"]
 [ext_resource type="Script" path="res://Scenes/TV/tv.gd" id="4_d2eac"]
 [ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="7_mpgb0"]
+[ext_resource type="PackedScene" uid="uid://byogw4x5xpflk" path="res://Scenes/Demon/demon.tscn" id="7_wu0o5"]
 [ext_resource type="Texture2D" uid="uid://bk4nuuhdfwbes" path="res://Assets/Items/white_cheese_piece.png" id="8_ab273"]
 
 [sub_resource type="Gradient" id="Gradient_jtrua"]
@@ -76,6 +77,10 @@ size = 1
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_3w0ng")]
 position = Vector2(789, 459)
 
+[node name="Demon" parent="." instance=ExtResource("7_wu0o5")]
+position = Vector2(739, 512)
+scale = Vector2(1.52, 1.52)
+
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="inventory_item" parent="Interactables" instance=ExtResource("7_mpgb0")]
@@ -83,6 +88,7 @@ position = Vector2(407, 516)
 scale = Vector2(0.5, 0.5)
 item_description = "Looks like River didn't eat her cheese block like I told her to..."
 item_name = "Cheese"
+pickup_message = "River's cheese block is still here?"
 item_texture = ExtResource("8_ab273")
 
 [node name="Lighting" type="Node2D" parent="."]

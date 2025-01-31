@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=4 uid="uid://bwatay0tncqd7"]
+
+[ext_resource type="TileSet" uid="uid://dhi63crwlo8kl" path="res://Scenes/Tilemaps/inventory.tres" id="1_5uql1"]
+[ext_resource type="Script" path="res://Scenes/GUI/Thought/ThoughtUI.gd" id="1_v62yx"]
+[ext_resource type="Texture2D" uid="uid://b4jmjh3pcfnbt" path="res://Assets/Portrait/20.png" id="2_vp88h"]
+[ext_resource type="LabelSettings" uid="uid://b5qfpcuuy7fk1" path="res://Scenes/GUI/DescriptionText.tres" id="3_qavuo"]
+
+[node name="ThoughtUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -768.0
+offset_bottom = -656.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v62yx")
+
+[node name="ProfilePanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ProfilePanel"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAcAAAAAAAEAAQAAAAsAAAABAAAAAQAEAAcAAAABAAEAAQAEAAsAAAA=")
+tile_set = ExtResource("1_5uql1")
+
+[node name="ProfileIcon" type="Sprite2D" parent="ProfilePanel"]
+position = Vector2(33, 29)
+texture = ExtResource("2_vp88h")
+
+[node name="ThoughtPanel" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.333
+anchor_right = 0.866667
+anchor_bottom = 0.944444
+offset_left = 0.0639992
+offset_right = 25.024
+offset_bottom = 3.55556
+grow_horizontal = 0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ThoughtPanel"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAcAAAABAAAAAQABAAcAAAACAAAAAQACAAcAAAABAAEAAQABAAsAAAACAAEAAQACAAsAAAAAAAEAAQAAAAsAAAADAAAAAQADAAcAAAAEAAAAAQAEAAcAAAADAAEAAQADAAsAAAAEAAEAAQAEAAsAAAA=")
+tile_set = ExtResource("1_5uql1")
+
+[node name="ThoughtText" type="Label" parent="ThoughtPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 11.0
+offset_right = 152.0
+offset_bottom = 59.0
+scale = Vector2(1.00153, 1)
+text = "It's too big to fit under the door..."
+label_settings = ExtResource("3_qavuo")
+autowrap_mode = 2

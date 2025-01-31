@@ -10,11 +10,11 @@ func _ready() -> void:
 func _on_inventory_updated() -> void:
 	clear_grid_container()
 	# add a slot per item
-	for item in InventoryManager.inventory:
+	for i in range(InventoryManager.inventory.size()):
 		var slot: InventorySlot = InventoryManager.inventory_slot_scene.instantiate()
 		h_container.add_child(slot)
-		if item != null :
-			slot.set_item(item)
+		if InventoryManager.inventory[i] != null :
+			slot.set_item(InventoryManager.inventory[i])
 		else:
 			slot.set_empty()
 	

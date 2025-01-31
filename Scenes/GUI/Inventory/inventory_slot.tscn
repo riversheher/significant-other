@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dhi63crwlo8kl" path="res://Scenes/Tilemaps/inventory.tres" id="2_8ll02"]
 [ext_resource type="Texture2D" uid="uid://bk4nuuhdfwbes" path="res://Assets/Items/white_cheese_piece.png" id="3_pq5j6"]
 [ext_resource type="FontFile" uid="uid://b0u46jqlornir" path="res://Assets/Fonts/GoMono/GoMonoNerdFont-Bold.ttf" id="4_2a8vm"]
+[ext_resource type="LabelSettings" uid="uid://b5qfpcuuy7fk1" path="res://Scenes/GUI/DescriptionText.tres" id="5_pndem"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k421e"]
 
@@ -13,11 +14,6 @@
 font = ExtResource("4_2a8vm")
 font_size = 14
 font_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_6l4gt"]
-font = ExtResource("4_2a8vm")
-font_size = 10
-font_color = Color(0.0745098, 0.0745098, 0.0745098, 0.784314)
 
 [node name="InventorySlot" type="Control"]
 custom_minimum_size = Vector2(48, 48)
@@ -89,7 +85,7 @@ anchor_right = 0.9375
 anchor_bottom = 0.695312
 grow_vertical = 2
 text = "Looks like River didn't eat her cheese block like I told her to..."
-label_settings = SubResource("LabelSettings_6l4gt")
+label_settings = ExtResource("5_pndem")
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 

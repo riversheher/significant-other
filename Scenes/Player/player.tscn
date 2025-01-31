@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dy5qxkexdf315" path="res://Assets/Female/Female_R.png" id="3_enk5j"]
 [ext_resource type="Script" path="res://Scenes/Player/player_camera.gd" id="5_ocy0f"]
 [ext_resource type="PackedScene" uid="uid://b3rcjdrxdijd2" path="res://Scenes/Player/magnifying_glass.tscn" id="6_47fr5"]
-[ext_resource type="PackedScene" uid="uid://dio5m0s2ry4mq" path="res://Scenes/GUI/Inventory/InventoryUI.tscn" id="6_ikdmm"]
+[ext_resource type="PackedScene" uid="uid://dah2cmmmimdbt" path="res://Scenes/GUI/player_gui.tscn" id="7_lyk7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdicp"]
 atlas = ExtResource("1_udpvw")
@@ -1116,8 +1116,4 @@ offset = Vector2(0, -82)
 
 [node name="InvUI" type="CanvasLayer" parent="."]
 
-[node name="InventoryUI" parent="InvUI" instance=ExtResource("6_ikdmm")]
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-grow_vertical = 1
+[node name="PlayerGUI" parent="InvUI" instance=ExtResource("7_lyk7g")]

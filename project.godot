@@ -21,6 +21,7 @@ LevelManager="*res://_Globals/level_manager.gd"
 SceneTransition="*res://Scenes/Transition/scene_transition.tscn"
 InventoryManager="*res://_Globals/inventory_manager.gd"
 AudioPlayer="*res://_Globals/AudioPlayer.tscn"
+GameState="*res://_Globals/GameState.gd"
 
 [display]
 

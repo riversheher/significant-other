@@ -1,16 +1,14 @@
-[gd_resource type="AudioStreamPlaylist" load_steps=6 format=3 uid="uid://c6pxbaxpdtj4e"]
+[gd_resource type="AudioStreamPlaylist" load_steps=5 format=3 uid="uid://c6pxbaxpdtj4e"]
 
 [ext_resource type="AudioStream" uid="uid://cib80usbufoi3" path="res://Assets/Music/Dark Woods.ogg" id="1_dy75n"]
-[ext_resource type="AudioStream" uid="uid://cuj2txl4rhv6c" path="res://Assets/Music/Ghost Castle.ogg" id="2_nlbq7"]
 [ext_resource type="AudioStream" uid="uid://bidfnfojoitnv" path="res://Assets/Music/Lost City.ogg" id="3_r86lb"]
 [ext_resource type="AudioStream" uid="uid://bkgtq70oiivfp" path="res://Assets/Music/Magikal River.ogg" id="4_x3j0f"]
 [ext_resource type="AudioStream" uid="uid://dujfp8m51p5ni" path="res://Assets/Music/Swamp.ogg" id="5_2xr3v"]
 
 [resource]
 fade_time = 0.7
-stream_count = 5
-stream_0 = ExtResource("2_nlbq7")
-stream_1 = ExtResource("3_r86lb")
-stream_2 = ExtResource("4_x3j0f")
-stream_3 = ExtResource("1_dy75n")
-stream_4 = ExtResource("5_2xr3v")
+stream_count = 4
+stream_0 = ExtResource("3_r86lb")
+stream_1 = ExtResource("4_x3j0f")
+stream_2 = ExtResource("1_dy75n")
+stream_3 = ExtResource("5_2xr3v")

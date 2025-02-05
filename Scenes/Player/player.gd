@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 @export var state: String = "idle"
 @export var direction: String = "front"
 
+var can_move: bool = true
+
 @onready var inv_ui: CanvasLayer = $InvUI
 @onready var interact_sprite: Sprite2D = $interact_sprite
 
@@ -57,7 +59,10 @@ func _process(delta: float) -> void:
 	elif state == "run" and not is_running:
 		state = "walk"
 
-
+	
+	if !can_move:
+		state = "idle"
+	
 	$AnimatedSprite2D.animation = state + "_" + direction
 	$AnimatedSprite2D.play()
 

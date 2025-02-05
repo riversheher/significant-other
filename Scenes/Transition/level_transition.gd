@@ -40,8 +40,6 @@ func _update_area() -> void:
 	var new_rect: Vector2 = Vector2(48,48)
 	var new_pos: Vector2 = Vector2.ZERO
 	
-	print("here")
-	
 	if side == SIDE.BACK:
 		new_rect.x *= size
 		new_pos.y -= 24

@@ -10,6 +10,10 @@ class_name InventorySlot extends Control
 var item: Dictionary = {}
 var selected: bool = false
 
+# Signal for when the player selects an item
+signal item_selected
+signal item_deselected
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,12 +34,13 @@ func _on_item_button_pressed() -> void:
 	#deselect item if it is already selected
 	if selected:
 		selected = false
-		InventoryManager.selected_item = {}
+		InventoryManager.deselect_item()
 		button.button_pressed = false
 		return
 	# another deselection case
 	if !InventoryManager.selected_item.is_empty() and InventoryManager.selected_item["name"] == item["name"]:
 		selected = false
+		InventoryManager.deselect_item()
 		button.button_pressed = false
 		return
 	# if a different item is selected, don't select this one
@@ -43,14 +48,17 @@ func _on_item_button_pressed() -> void:
 	if !InventoryManager.selected_item.is_empty() and InventoryManager.selected_item["name"] != item["name"]:
 		selected = false
 		button.button_pressed = false
+		InventoryManager.check_combination(item)
 		return
 	
 	# if all other cases are false, then that means we have a free slot to select this item
 	# TODO: defer responsibility to manager
 	selected = true
 	print("Selected Item: ", item["name"])
-	InventoryManager.selected_item = item
 	
+	DetailsPanel.visible = false
+	
+	InventoryManager.select_item(item)
 
 
 func _on_item_button_mouse_entered() -> void:

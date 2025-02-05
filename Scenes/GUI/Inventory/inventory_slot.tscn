@@ -18,16 +18,14 @@ font_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
 [node name="InventorySlot" type="Control"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -904.0
-offset_bottom = -664.0
+anchor_left = 0.00833333
+anchor_top = 0.0111111
+anchor_right = 0.175
+anchor_bottom = 0.2125
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yh0ve")
+metadata/_edit_use_anchors_ = true
 
 [node name="ItemPanel" type="Control" parent="."]
 anchors_preset = 0

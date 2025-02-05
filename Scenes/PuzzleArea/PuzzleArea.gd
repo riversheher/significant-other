@@ -15,6 +15,7 @@ class_name PuzzleArea extends Area2D
 @onready var collision_shape: CollisionShape2D = $InteractionArea
 
 @export_category("Quest Info")
+@export var quest_name: String = ""
 @export var required_item: String = ""
 @export var message_fail: String = ""
 @export var message_success: String = ""
@@ -30,8 +31,6 @@ func _ready() -> void:
 # _update_area updates the area of the rect in order to reflect the size input into the inspector
 func _update_area() -> void:
 	var new_rect: Vector2 = Vector2(24,24)
-	
-	print("here")
 
 	if collision_shape == null:
 		collision_shape = get_node("InteractionArea")
@@ -43,11 +42,17 @@ func _update_area() -> void:
 	
 func _process(delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("interact"):
+		# Check if player has correct item selected
+		if required_item == "" or InventoryManager.is_selected(required_item):
+			complete_puzzle()
+			self.queue_free()
 		# Check if player has correct item
-		if InventoryManager.has_item(required_item):
+		elif InventoryManager.has_item(required_item):
 			InventoryManager.change_thought(message_success)
+			AudioPlayer.play_thinking_sound(-5)
 		else:
 			InventoryManager.change_thought(message_fail)
+			AudioPlayer.play_thinking_sound(-5)
 			
 
 
@@ -61,3 +66,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.interact_sprite.visible = false
 		player_in_range = false
+		
+# Complete the puzzle and update game state
+func complete_puzzle() -> void:
+	GameState.mark_puzzle_solved(quest_name)

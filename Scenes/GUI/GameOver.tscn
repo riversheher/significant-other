@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://fy8oqqfnbsbb"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/game_over.gd" id="1_15ty2"]
+[ext_resource type="FontFile" uid="uid://b0u46jqlornir" path="res://Assets/Fonts/GoMono/GoMonoNerdFont-Bold.ttf" id="1_tl84x"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_15ty2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 963.0
+offset_bottom = 724.0
+color = Color(0.0784314, 0.0666667, 0.0588235, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 237.0
+offset_right = -274.0
+offset_bottom = -398.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tl84x")
+theme_override_font_sizes/font_size = 72
+text = "Game Over"
+
+[node name="Description" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 312.0
+offset_top = 345.0
+offset_right = -288.0
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tl84x")
+theme_override_font_sizes/font_size = 18
+text = "River squeezed you too hard because her love was overflowing."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Retry" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 504.0
+offset_top = 447.0
+offset_right = -330.0
+offset_bottom = -222.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tl84x")
+theme_override_font_sizes/font_size = 36
+text = "Retry"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 342.0
+offset_top = 447.0
+offset_right = -503.0
+offset_bottom = -222.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tl84x")
+theme_override_font_sizes/font_size = 36
+text = "Quit"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

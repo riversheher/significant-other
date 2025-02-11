@@ -73,7 +73,7 @@ func change_thought(thought: String) -> void:
 	current_thought = thought
 	thought_changed.emit()
 
-# sets the player_node
+# sets the player_node, item_two: Dictionary
 func set_player_reference(player: Node):
 	player_node = player
 	
@@ -100,4 +100,42 @@ func is_selected(name: String) -> bool:
 # if it can be combined, remove the two items from inventory, and add
 # the new combination item.
 func check_combination(item_to_check: Dictionary) -> bool:
+	match item_to_check["name"]:
+		"Bloody Knife":
+			if selected_item["name"] == "Cheese":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_sliced_cheese()
+				return true
+		"Cheese":
+			if selected_item["name"] == "Bloody Knife":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_sliced_cheese()
+				return true
+		"Foggy Glasses":
+			if selected_item["name"] == "Dirty Panties":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_clean_glasses()
+				return true
+		"Dirty Panties":
+			if selected_item["name"] == "Foggy Glasses":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_clean_glasses()
+				return true
+		"Blurry Note":
+			if selected_item["name"] == "Smelly Glasses":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_pixel_note()
+				return true
+		"Smelly Glasses":
+			if selected_item["name"] == "Blurry Note":
+				remove_item(item_to_check)
+				remove_item(selected_item)
+				GameState.pickup_pixel_note()
+				return true
+				
 	return false

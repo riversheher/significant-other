@@ -44,7 +44,6 @@ func _on_item_button_pressed() -> void:
 		button.button_pressed = false
 		return
 	# if a different item is selected, don't select this one
-	# TODO: we will need to add ability for items to combine
 	if !InventoryManager.selected_item.is_empty() and InventoryManager.selected_item["name"] != item["name"]:
 		selected = false
 		button.button_pressed = false

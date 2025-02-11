@@ -8,12 +8,22 @@ var unlocked_rooms = {
 var solved_puzzles = {
 	"bedroom window": false, 
 	"washroom cheese": false, 
-	"doors": false
+	"doors": false,
+	"note": false
 }
 
 var key_items = {
 	"Cheese": true,
-	"River's Key": true
+	"River's Key": true,
+	"Bloody Knife": true,
+	"Foggy Glasses": true,
+	"Dirty Panties": true,
+	"Blurry Note": true
+}
+
+var combinations = {
+	"Bloody Knife": "Cheese",
+	"Cheese": "Bloody Knife"
 }
 
 var doors_locked: int = 0
@@ -22,6 +32,9 @@ var timer: Timer
 
 var key_sound: AudioStream = preload("res://Assets/SFX/keys jingling - single.wav")
 var running_sound: AudioStream = preload("res://Assets/SFX/running.wav")
+var slice_cheese_icon: Texture = preload("res://Assets/Items/white_cheese_piece.png")
+var pixel_note_icon: Texture = preload("res://Assets/Items/06.png")
+var clean_glasses_icon: Texture = preload("res://Assets/Items/glasses_002.png")
 
 func reset_game() -> void:
 	reset_self()
@@ -30,7 +43,11 @@ func reset_game() -> void:
 func reset_self() -> void:
 	key_items = {
 		"Cheese": true,
-		"River's Key": true
+		"River's Key": true,
+		"Bloody Knife": true,
+		"Foggy Glasses": true,
+		"Dirty Panties": true,
+		"Blurry Note": true
 	}
 	
 	solved_puzzles = {
@@ -53,7 +70,7 @@ func reset_timer() -> void:
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.autostart = true
-	timer.wait_time = 20
+	timer.wait_time = 30
 	timer.timeout.connect(_fail_doors_locked)
 
 func unlock_room(room_name):
@@ -73,7 +90,7 @@ func mark_puzzle_solved(puzzle_name):
 		"bedroom window":
 			_solve_bedroom_window()
 		"washroom cheese":
-			unlocked_rooms["washroom"] = true
+			_solve_washroom_cheese()
 		"doors":
 			await AudioPlayer.play_FX(AudioPlayer.door_lock)
 			doors_locked += 1
@@ -85,7 +102,9 @@ func mark_puzzle_solved(puzzle_name):
 				AudioPlayer.play_FX(AudioPlayer.light_cough)
 			if doors_locked == 3:
 				_solve_doors_locked()
-				
+		"note":
+			_solve_note()
+			
 			
 	
 func pickup_item(item_name: String) -> void:
@@ -104,7 +123,7 @@ func room_entered_triggers(room_name: String):
 		if timer == null:
 			reset_timer()
 		add_child(timer)
-		InventoryManager.change_thought("I have to make sure River can't get back in!")
+		InventoryManager.change_thought("I have to make sure River can't get back in!  I need to lock the doors.")
 		AudioPlayer.play_FX(AudioPlayer.light_cough)
 		
 		print("timer started 20 seconds")
@@ -125,7 +144,16 @@ func _solve_bedroom_window():
 	AudioPlayer.play_FX(running_sound)
 	InventoryManager.change_thought("Sounds like River is distracted... Let's hurry!")
 	
-# Once the timer ends, the living room is no longer safe
+func _solve_washroom_cheese():
+	unlocked_rooms["washroom"] = true
+	var item = {
+		"name": "Sliced Cheese"
+	}
+	InventoryManager.remove_item(item)
+	await AudioPlayer.play_FX(running_sound)
+	InventoryManager.change_thought("Sounds like River is scurrying away!")
+
+# Once the timer ends, the living roomitem_texture is no longer safe
 # If the player is still in the living room, stop them from moving and river comes to kill
 func _fail_doors_locked():
 	print("failed to lock doors")
@@ -140,3 +168,46 @@ func _solve_doors_locked():
 	InventoryManager.change_thought("River shouldn't be able to get back in now that all the doors are locked.")
 	AudioPlayer.play_FX(AudioPlayer.light_cough)
 	
+func _solve_note():
+	solved_puzzles["note"] = true
+	
+	AudioPlayer.play_thinking_sound()
+	
+	var server = HttpServer.new()
+	server.register_router("/", LoveRouter.new())
+	add_child(server)
+	server.enable_cors(["http://localhost:8060"])
+	server.start()
+	
+func pickup_sliced_cheese() -> void:
+	var sliced_cheese: InventoryItem = InventoryItem.new()
+	sliced_cheese.item_name = "Sliced Cheese"
+	sliced_cheese.item_description = "It's so small and stinky... The smell River hates most."
+	sliced_cheese.pickup_message = "I hope I can use this to scare River..."
+	sliced_cheese.item_texture = slice_cheese_icon
+	sliced_cheese.item_sound = AudioPlayer.knife_sound
+	
+	sliced_cheese.pickup_item()
+	
+func pickup_clean_glasses() -> void:
+	var glasses: InventoryItem = InventoryItem.new()
+	glasses.item_name = "Smelly Glasses"
+	glasses.item_description = "The lenses have some oily smears on it, but you can see through them."
+	glasses.pickup_message = "I guess this will have to do. I should be able to read now."
+	glasses.item_texture = clean_glasses_icon
+	glasses.item_sound = AudioPlayer.glasses_sound
+	
+	glasses.pickup_item()
+	
+func pickup_pixel_note() -> void:
+	var pixelated_note: InventoryItem = InventoryItem.new()
+	pixelated_note.item_name = "Pixelated Note"
+	pixelated_note.item_description = "You can see the note clearly, but it's all pixels!"
+	pixelated_note.pickup_message = "Maybe I can read this better at my desk?"
+	pixelated_note.item_texture = pixel_note_icon
+	pixelated_note.item_sound = AudioPlayer.note_sound
+	
+	pixelated_note.pickup_item()
+	
+func to_credits() -> void:
+	pass

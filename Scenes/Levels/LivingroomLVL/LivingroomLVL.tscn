@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://3a18q40nn7lc" path="res://Scenes/TV/TV.tscn" id="3_uv3kp"]
 [ext_resource type="Script" path="res://Scenes/TV/tv.gd" id="4_d2eac"]
 [ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="7_mpgb0"]
-[ext_resource type="Texture2D" uid="uid://bxy6stclgv7p2" path="res://Assets/Items/white_cheese.png" id="8_yc43p"]
 [ext_resource type="AudioStream" uid="uid://cnis0h4on0kii" path="res://Assets/SFX/Voice/clearing-throat-karen-cenon.wav" id="9_6g8tu"]
 [ext_resource type="PackedScene" uid="uid://t51fppanojrx" path="res://Scenes/PuzzleArea/puzzle_area.tscn" id="9_stkaa"]
 [ext_resource type="Texture2D" uid="uid://dphnthe43evem" path="res://Assets/Items/18_Killers_Cleaver.png" id="11_gfkfj"]
 [ext_resource type="AudioStream" uid="uid://bfwy26kvi5xxr" path="res://Assets/SFX/knife-draw-48223.mp3" id="12_6yb1m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m6foa"]
+load_path = "res://.godot/imported/white_cheese.png-7081d1de66b5c042f39a8dfad6a7221c.ctex"
 
 [sub_resource type="Gradient" id="Gradient_jtrua"]
 offsets = PackedFloat32Array(0, 0.214286, 0.62987)
@@ -37,8 +39,10 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="LivingroomLVL" type="Node2D"]
+[node name="LivingroomLVL" type="Node2D" node_paths=PackedStringArray("key_items", "puzzles")]
 script = ExtResource("1_gg4j5")
+key_items = [NodePath("Interactables/cheese"), NodePath("Interactables/knife")]
+puzzles = [NodePath("Washroom Puzzle")]
 room_name = "livingroom"
 demon_pos = Vector2(650, 525)
 
@@ -73,13 +77,13 @@ position = Vector2(789, 459)
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="inventory_item" parent="Interactables" instance=ExtResource("7_mpgb0")]
+[node name="cheese" parent="Interactables" instance=ExtResource("7_mpgb0")]
 position = Vector2(407, 516)
 scale = Vector2(0.5, 0.5)
 item_description = "Looks like River didn't eat her cheese block like I told her to..."
 item_name = "Cheese"
-pickup_message = "If she ate it like I told her to, none of this would be happening."
-item_texture = ExtResource("8_yc43p")
+pickup_message = "If she ate this like I told her to, none of this would be happening."
+item_texture = SubResource("CompressedTexture2D_m6foa")
 item_sound = ExtResource("9_6g8tu")
 collision_size = 1.4
 
@@ -129,3 +133,19 @@ texture = SubResource("GradientTexture2D_at4qo")
 position = Vector2(465, 68)
 energy = 0.6
 texture = SubResource("GradientTexture2D_at4qo")
+
+[node name="Washroom Puzzle" parent="." instance=ExtResource("9_stkaa")]
+position = Vector2(397, 288)
+x_size = 3
+quest_name = "washroom cheese"
+required_item = "Sliced Cheese"
+message_fail = "It sounds like River might be in there..."
+message_success = "Maybe I can slide the cheese under the door..."
+
+[node name="Desk Puzzle" parent="." instance=ExtResource("9_stkaa")]
+position = Vector2(746, 587)
+x_size = 4
+quest_name = "note"
+required_item = "Pixelated Note"
+message_fail = "There's nothing I can do here now."
+message_success = "I should see if I can figure out the note."

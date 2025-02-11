@@ -8,6 +8,9 @@ const door_lock: AudioStream = preload("res://Assets/SFX/door-lock-sound.wav")
 const thinking_sound: AudioStream = preload("res://Assets/SFX/Voice/huh-karen-cenon.wav")
 const light_cough: AudioStream = preload("res://Assets/SFX/Voice/clearing-throat-karen-cenon.wav")
 const death_sound: AudioStream = preload("res://Assets/SFX/Voice/death sound-karen-cenon.wav")
+const knife_sound: AudioStream = preload("res://Assets/SFX/knife-draw-48223.mp3")
+const glasses_sound: AudioStream = preload("res://Assets/SFX/folding-up-glasses-46050.mp3")
+const note_sound: AudioStream = preload("res://Assets/SFX/paper-245786.mp3")
 
 func _play_music(music: AudioStream, volume: float = 0) -> void:
 	if stream == music:

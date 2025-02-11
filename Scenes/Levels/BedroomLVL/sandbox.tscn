@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://couwlit3b5tu8"]
+[gd_scene load_steps=16 format=3 uid="uid://couwlit3b5tu8"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_4w3bu"]
 [ext_resource type="PackedScene" uid="uid://bdmralx81s3is" path="res://Scenes/Bedroom/bedroom.tscn" id="2_0d5mo"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://kufl0l26bkdm" path="res://Assets/Items/00.png" id="6_lc48r"]
 [ext_resource type="AudioStream" uid="uid://c60d3a7qn8xt1" path="res://Assets/SFX/keys jingling - single.wav" id="7_154qa"]
 [ext_resource type="PackedScene" uid="uid://t51fppanojrx" path="res://Scenes/PuzzleArea/puzzle_area.tscn" id="7_gcfpc"]
+[ext_resource type="Texture2D" uid="uid://bbqbmg48qk31v" path="res://Assets/Items/06.png" id="8_f6klx"]
+[ext_resource type="AudioStream" uid="uid://chikej1ftmtab" path="res://Assets/SFX/paper-245786.mp3" id="9_e2o00"]
+[ext_resource type="Texture2D" uid="uid://co2f2stwws3gh" path="res://Assets/Items/panties10.png" id="10_8e54o"]
 
 [sub_resource type="Gradient" id="Gradient_gjio4"]
 offsets = PackedFloat32Array(0, 0.214286, 0.62987)
@@ -68,6 +71,23 @@ pickup_message = "I found River's Key!"
 item_texture = ExtResource("6_lc48r")
 item_sound = ExtResource("7_154qa")
 collision_size = 1.4
+
+[node name="blurry note" parent="Interactables" instance=ExtResource("5_3sm1f")]
+position = Vector2(412, 298)
+item_description = "You can't make out the text on the note. It's too blurry."
+item_name = "Blurry Note"
+pickup_message = "A note from River!  I need to find my glasses."
+item_texture = ExtResource("8_f6klx")
+item_sound = ExtResource("9_e2o00")
+
+[node name="panties" parent="Interactables" instance=ExtResource("5_3sm1f")]
+position = Vector2(363, 453)
+rotation = 1.88151
+scale = Vector2(0.640002, 0.640002)
+item_description = "It looks clean, but it definitely doesn't smell clean."
+item_name = "Dirty Panties"
+pickup_message = "EEEYA! I should have washed these."
+item_texture = ExtResource("10_8e54o")
 
 [node name="Lighting" type="Node2D" parent="."]
 

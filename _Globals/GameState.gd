@@ -53,7 +53,8 @@ func reset_self() -> void:
 	solved_puzzles = {
 		"bedroom window": false, 
 		"washroom cheese": false, 
-		"doors": false
+		"doors": false,
+		"note": false
 	}
 	
 	unlocked_rooms = {
@@ -179,6 +180,8 @@ func _solve_note():
 	server.enable_cors(["http://localhost:8060"])
 	server.start()
 	
+	PlayerManager.player.show_qr()
+	
 func pickup_sliced_cheese() -> void:
 	var sliced_cheese: InventoryItem = InventoryItem.new()
 	sliced_cheese.item_name = "Sliced Cheese"
@@ -210,4 +213,4 @@ func pickup_pixel_note() -> void:
 	pixelated_note.pickup_item()
 	
 func to_credits() -> void:
-	pass
+	LevelManager.to_credits()

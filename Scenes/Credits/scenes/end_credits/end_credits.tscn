@@ -1,0 +1,217 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4lnxvnh0wmf1"]
+
+[ext_resource type="PackedScene" uid="uid://dgl2bvfkfuqy3" path="res://Scenes/Credits/scenes/credits/credits.tscn" id="1_ip3a7"]
+[ext_resource type="Script" path="res://Scenes/Credits/scenes/end_credits/end_credits.gd" id="2_fr14i"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_credits_scene/base/scenes/music_players/background_music_player.tscn" id="3_m40pv"]
+[ext_resource type="AudioStream" uid="uid://60om5jeo88y3" path="res://Assets/Music/boyfriend for river.mp3" id="4_ggc82"]
+[ext_resource type="Script" path="res://addons/maaacks_credits_scene/base/scripts/capture_focus.gd" id="4_la60t"]
+[ext_resource type="FontFile" uid="uid://m3wukc8o26lk" path="res://Assets/Fonts/FiraMono/FiraMonoNerdFont-Regular.otf" id="4_mx5sl"]
+
+[node name="EndCredits" instance=ExtResource("1_ip3a7")]
+script = ExtResource("2_fr14i")
+main_menu_scene = ""
+current_speed = 0.4
+
+[node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("3_m40pv")]
+stream = ExtResource("4_ggc82")
+volume_db = -15.097
+bus = &"Master"
+
+[node name="BackgroundColor" type="ColorRect" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScrollContainer" parent="." index="3"]
+clip_contents = false
+scroll_vertical = 0
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(960, 0)
+theme_override_fonts/normal_font = ExtResource("4_mx5sl")
+text = "[center][font_size=48]Significant Other[/font_size]
+
+[font_size=32]Dedication[/font_size]
+For Katherine Alexandra Schmidt
+
+[font_size=32]Developer[/font_size]
+River Wang
+
+[font_size=32]Consultants[/font_size]
+Aurelia Prosi-Marx
+
+[font_size=32]Music Composition[/font_size]
+[font_size=24]Theme Song[/font_size]
+Author: [url=https://www.youtube.com/channel/UCPsGM_X7gqV9QKFx-KgBFCA]Sweatjobs[/url]
+Source: [url=https://www.youtube.com/watch?v=n4WNBR1IkL8]Boyfriend (remix)[/url]
+License: Proprietary
+
+
+[font_size=48]Unaffiliated[/font_size]
+[font_size=32]Music[/font_size]
+[font_size=24]Background Music[/font_size]
+Author: [url=https://www.youtube.com/@alkakrab]AlkaKrab[/url]  
+Source: [url=https://www.youtube.com/@alkakrab]Dark Woods[/url]
+
+Author: [url=https://www.youtube.com/@alkakrab]AlkaKrab[/url]  
+Source: [url=https://www.youtube.com/@alkakrab]Ghost Castle[/url]  
+
+Author: [url=https://www.youtube.com/@alkakrab]AlkaKrab[/url]  
+Source: [url=https://www.youtube.com/@alkakrab]Magikal River[/url]  
+
+Author: [url=https://www.youtube.com/@alkakrab]AlkaKrab[/url]  
+Source: [url=https://www.youtube.com/@alkakrab]Lost City[/url]  
+
+Author: [url=https://www.youtube.com/@alkakrab]AlkaKrab[/url]  
+Source: [url=https://www.youtube.com/@alkakrab]Swamp[/url]  
+
+[font_size=32]SFX[/font_size]
+[font_size=24]Vocalizations[/font_size]
+Author: Dillon Becker 
+License: [url=https://creativecommons.org/licenses/by/4.0/legalcode]CC BY 4.0[/url]
+
+[font_size=24]Item Sounds[/font_size]
+Author: Multiple
+Source: [url=https://pixabay.com/sound-effects/search/footsteps/]Pixabay[/url]
+License: [url=https://pixabay.com/service/license-summary/]Pixabay License[/url]
+
+[font_size=32]Art[/font_size]
+[font_size=24]Bloody Knife[/font_size]
+Author: [url=https://admurin.itch.io/]Admurin[/url]
+Source: [url=https://admurin.itch.io/admurins-halloween]Holiday: Halloween Items[/url]
+
+[font_size=24]Character Portrait[/font_size]
+Author: [url=https://Batareya.itch.io/]Batareya[/url]
+Source: [url=https://batareya.itch.io/pixel-art-retro-portraits-human-pack-50-portraits]Pixel-art Retro Portraits Human Pack[/url]
+
+[font_size=24]Cheese Icons[/font_size]
+Author: [url=https://ghostpixxells.itch.io/]ghostpixxells[/url]
+Source: [url=https://ghostpixxells.itch.io/pixel-mart]Pixel Mart[/url]
+
+[font_size=24]Dirty Underwear[/font_size]
+Author: [url=https://cazwolf.itch.io/]cazwolf[/url]
+Source: [url=https://cazwolf.itch.io/caz-pixel-fanservice]Pixel Fan Service[/url]
+License: [url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
+
+[font_size=24]Character Sprite[/font_size]
+Author: [url=https://angeler1234.itch.io/]angeler1234[/url]
+Source: [url=https://angeler1234.itch.io/basic-character-female-pack-48]Basic Character 48 PRO[/url]
+
+[font_size=24]UI[/font_size]
+Author: [url=https://admurin.itch.io/]admurin[/url]
+Source: [url=https://admurin.itch.io/ui-wood-theme]UI: 02 Wood Theme[/url]
+
+[font_size=24]Tilemap[/font_size]
+Author: [url=https://faycrest.itch.io/]Faycrest[/url]
+Source: [url=https://faycrest.itch.io/horror-hotel]Horror Hotel[/url]
+
+Author: [url=https://kauzz.itch.io/]kauzz[/url]
+Source: [url=https://kauzz.itch.io/mib]Modern+ Inner Basic[/url]
+
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Credits Scene[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]Github: Godot-Credits-Scene[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Godot TPD[/font_size]
+Author: [url=https://github.com/deep-entertainment]Deep Entertainment[/url]
+Source: [url=https://github.com/deep-entertainment/godottpd/blob/main]Github: godottpd[/url]
+License: [url=https://github.com/deep-entertainment/godottpd/blob/main/addons/godottpd/LICENSE]MIT License[/url]
+
+[font_size=48]--[/font_size]
+
+
+床前明月光
+疑是地上霜
+举头望明月
+低头思故乡
+
+
+Before my bed, the moon is shining,
+Casting light like frost upon the floor.
+Now I raise my head gazing up at the moon,
+Then lower it thinking of my home.
+- Li Bai (701–762)
+[/center]"
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="EndMessagePanel" type="Panel" parent="CenterContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/EndMessagePanel" index="0"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ThankPlayer" type="Label" parent="CenterContainer/EndMessagePanel/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/EndMessagePanel/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+script = ExtResource("4_la60t")
+
+[node name="ExitButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="MenuButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Menu"
+
+[connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

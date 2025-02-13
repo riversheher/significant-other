@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://un83lne078pf"
+path="res://.godot/imported/Sweatjobs - Boyfriend (2024) ft. Frimomen AI & Kasane Teto AI.mp3-f43683d3d9ae9c44981b1f0acbb29877.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Sweatjobs - Boyfriend (2024) ft. Frimomen AI & Kasane Teto AI.mp3"
+dest_files=["res://.godot/imported/Sweatjobs - Boyfriend (2024) ft. Frimomen AI & Kasane Teto AI.mp3-f43683d3d9ae9c44981b1f0acbb29877.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

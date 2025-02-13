@@ -9,6 +9,7 @@ var can_move: bool = true
 
 @onready var inv_ui: CanvasLayer = $InvUI
 @onready var interact_sprite: Sprite2D = $interact_sprite
+@onready var qr: CanvasLayer = $QR
 
 # pressed_keys keeps track of which keys are currently pressed, and is used to determine
 # the player's state.
@@ -129,3 +130,9 @@ func process_movement() -> void:
 func reset_state() -> void:
 	pressed_keys = {}
 	state = "idle"
+	
+func show_qr() -> void:
+	qr.show()
+	
+func hide_qr() -> void:
+	qr.hide()

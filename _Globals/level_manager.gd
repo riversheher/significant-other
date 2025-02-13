@@ -105,3 +105,17 @@ func to_retry() -> void:
 	await SceneTransition.transition_in("fade_in")
 	
 	get_tree().paused = false
+	
+func to_credits() -> void:
+	get_tree().paused = true
+	
+	await SceneTransition.transition_out("fade_out")
+	level_load_started.emit()
+	
+	await get_tree().process_frame
+	get_tree().change_scene_to_file("res://Scenes/GUI/credits.tscn")
+	
+	await get_tree().process_frame
+	await SceneTransition.transition_in("fade_in")
+	
+	get_tree().paused = false

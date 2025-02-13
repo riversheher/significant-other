@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://dxk3u6q6cf2gb"]
+[gd_scene load_steps=155 format=3 uid="uid://dxk3u6q6cf2gb"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_bhina"]
 [ext_resource type="Texture2D" uid="uid://doagx744hq6cq" path="res://Assets/Female/Female_I.png" id="1_udpvw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Player/player_camera.gd" id="5_ocy0f"]
 [ext_resource type="PackedScene" uid="uid://b3rcjdrxdijd2" path="res://Scenes/Player/magnifying_glass.tscn" id="6_47fr5"]
 [ext_resource type="PackedScene" uid="uid://dah2cmmmimdbt" path="res://Scenes/GUI/player_gui.tscn" id="7_lyk7g"]
+[ext_resource type="PackedScene" uid="uid://vws7ioq53tdf" path="res://Scenes/GUI/qr.tscn" id="8_uay17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdicp"]
 atlas = ExtResource("1_udpvw")
@@ -1117,3 +1118,6 @@ offset = Vector2(0, -82)
 [node name="InvUI" type="CanvasLayer" parent="."]
 
 [node name="PlayerGUI" parent="InvUI" instance=ExtResource("7_lyk7g")]
+
+[node name="QR" parent="." instance=ExtResource("8_uay17")]
+visible = false

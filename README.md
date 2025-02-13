@@ -1,0 +1,1 @@
+This is a silly game I created for my significant other for Valentines Day!  It's nothing special and is the first game I have created!  This is purely a personal project and not meant for commercial purposes.

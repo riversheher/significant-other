@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwrwx644m56dy"]
+
+[ext_resource type="FontFile" uid="uid://b0u46jqlornir" path="res://Assets/Fonts/GoMono/GoMonoNerdFont-Bold.ttf" id="1_56j3v"]
+[ext_resource type="Script" path="res://Scenes/GUI/opening_menu.gd" id="1_avbxa"]
+[ext_resource type="PackedScene" uid="uid://c6jvtxehtgldk" path="res://Scenes/Cutscenes/opening_cutscene.tscn" id="2_h2mk1"]
+[ext_resource type="AudioStream" uid="uid://60om5jeo88y3" path="res://Assets/Music/boyfriend for river.mp3" id="3_4gsmv"]
+[ext_resource type="FontFile" uid="uid://m3wukc8o26lk" path="res://Assets/Fonts/FiraMono/FiraMonoNerdFont-Regular.otf" id="4_ec8yr"]
+
+[node name="OpeningMenu" type="CanvasLayer"]
+script = ExtResource("1_avbxa")
+opening_scene = ExtResource("2_h2mk1")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 961.0
+offset_bottom = 722.0
+color = Color(0.0784314, 0.0666667, 0.0588235, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = 360.0
+offset_right = -114.0
+offset_bottom = -275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_56j3v")
+theme_override_font_sizes/font_size = 72
+text = "Significant Other"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_fonts/normal_font = ExtResource("4_ec8yr")
+text = "Controls:
+
+e - Interact
+click - continue"
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 416.0
+offset_top = 488.0
+offset_right = -418.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_56j3v")
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4gsmv")
+volume_db = -15.0
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

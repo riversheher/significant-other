@@ -1,13 +1,22 @@
 @tool
-extends Node2D
+class_name InventoryItem extends Node2D
 
 @export var item_description: String = ""
 @export var item_name: String = ""
 @export var item_effect: String = ""
+@export var pickup_message: String = ""
 @export var item_texture: Texture
+@export var item_sound: AudioStream
+
+@export_range(0,2,0.1) var collision_size: float = 1:
+	set(val):
+		collision_size = val
+		_update_area()
+		
 var scene_path: String = "res://Scenes/InventoryItem/inventory_item.gd"
 
 @onready var icon_sprite: Sprite2D = $Sprite2D
+@onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
 var player_in_range: bool = false
 
@@ -34,10 +43,17 @@ func pickup_item() -> void:
 		"effect": item_effect,
 		"description": item_description,
 		"texture": item_texture,
-		"scene_path": scene_path
+		"scene_path": scene_path,
 	}
 	if InventoryManager.player_node:
 		InventoryManager.add_item(item)
+		InventoryManager.change_thought(pickup_message)
+		
+		GameState.pickup_item(item_name)
+		
+		if item_sound != null:
+			AudioPlayer.play_FX(item_sound)
+		
 		self.queue_free()
 
 
@@ -51,3 +67,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.interact_sprite.visible = false
 		player_in_range = false
+		
+func _update_area() -> void:
+	if collision_shape == null:
+		collision_shape = get_node("Area2D/CollisionShape2D")
+	collision_shape.set_scale(Vector2(collision_size, collision_size))

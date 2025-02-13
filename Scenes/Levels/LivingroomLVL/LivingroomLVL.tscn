@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dka8yfdfldhw0"]
+[gd_scene load_steps=17 format=3 uid="uid://dka8yfdfldhw0"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_gg4j5"]
 [ext_resource type="PackedScene" uid="uid://2lfn2j1xsa6y" path="res://Scenes/Livingroom/livingroom.tscn" id="2_motqd"]
@@ -7,7 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://3a18q40nn7lc" path="res://Scenes/TV/TV.tscn" id="3_uv3kp"]
 [ext_resource type="Script" path="res://Scenes/TV/tv.gd" id="4_d2eac"]
 [ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="7_mpgb0"]
-[ext_resource type="Texture2D" uid="uid://bk4nuuhdfwbes" path="res://Assets/Items/white_cheese_piece.png" id="8_ab273"]
+[ext_resource type="AudioStream" uid="uid://cnis0h4on0kii" path="res://Assets/SFX/Voice/clearing-throat-karen-cenon.wav" id="9_6g8tu"]
+[ext_resource type="PackedScene" uid="uid://t51fppanojrx" path="res://Scenes/PuzzleArea/puzzle_area.tscn" id="9_stkaa"]
+[ext_resource type="Texture2D" uid="uid://dphnthe43evem" path="res://Assets/Items/18_Killers_Cleaver.png" id="11_gfkfj"]
+[ext_resource type="AudioStream" uid="uid://bfwy26kvi5xxr" path="res://Assets/SFX/knife-draw-48223.mp3" id="12_6yb1m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m6foa"]
+load_path = "res://.godot/imported/white_cheese.png-7081d1de66b5c042f39a8dfad6a7221c.ctex"
 
 [sub_resource type="Gradient" id="Gradient_jtrua"]
 offsets = PackedFloat32Array(0, 0.214286, 0.62987)
@@ -33,8 +39,12 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="LivingroomLVL" type="Node2D"]
+[node name="LivingroomLVL" type="Node2D" node_paths=PackedStringArray("key_items", "puzzles")]
 script = ExtResource("1_gg4j5")
+key_items = [NodePath("Interactables/cheese"), NodePath("Interactables/knife")]
+puzzles = [NodePath("Washroom Puzzle")]
+room_name = "livingroom"
+demon_pos = Vector2(650, 525)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 960.0
@@ -62,28 +72,47 @@ target_trans_area = "wshrm_lvgrm"
 size = 1
 side = 0
 
-[node name="lvgrm_grg" parent="." instance=ExtResource("3_hw0es")]
-position = Vector2(73, 600)
-target_trans_area = "grg_lvgrm"
-size = 1
-side = 0
-
-[node name="lvgrm_yrd" parent="." instance=ExtResource("3_hw0es")]
-position = Vector2(408, 649)
-target_trans_area = "yrd_lvgrm"
-size = 1
-
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_3w0ng")]
 position = Vector2(789, 459)
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="inventory_item" parent="Interactables" instance=ExtResource("7_mpgb0")]
+[node name="cheese" parent="Interactables" instance=ExtResource("7_mpgb0")]
 position = Vector2(407, 516)
 scale = Vector2(0.5, 0.5)
 item_description = "Looks like River didn't eat her cheese block like I told her to..."
 item_name = "Cheese"
-item_texture = ExtResource("8_ab273")
+pickup_message = "If she ate this like I told her to, none of this would be happening."
+item_texture = SubResource("CompressedTexture2D_m6foa")
+item_sound = ExtResource("9_6g8tu")
+collision_size = 1.4
+
+[node name="frontdoor" parent="Interactables" instance=ExtResource("9_stkaa")]
+position = Vector2(408, 168)
+quest_name = "doors"
+message_fail = "I need to lock this door."
+message_success = "She shouldn't be able to get in here now."
+
+[node name="garagedoor" parent="Interactables" instance=ExtResource("9_stkaa")]
+position = Vector2(73, 599)
+quest_name = "doors"
+message_fail = "I need to lock this door."
+message_success = "She shouldn't be able to get in here now."
+
+[node name="yarddoor" parent="Interactables" instance=ExtResource("9_stkaa")]
+position = Vector2(408, 647)
+quest_name = "doors"
+message_fail = "I need to lock this door."
+message_success = "She shouldn't be able to get in here now."
+
+[node name="knife" parent="Interactables" instance=ExtResource("7_mpgb0")]
+position = Vector2(239, 517)
+item_description = "I might need to use this to protect myself... eeek!"
+item_name = "Bloody Knife"
+pickup_message = "D....did River use this knife to kill Brad?"
+item_texture = ExtResource("11_gfkfj")
+item_sound = ExtResource("12_6yb1m")
+collision_size = 0.7
 
 [node name="Lighting" type="Node2D" parent="."]
 
@@ -104,3 +133,19 @@ texture = SubResource("GradientTexture2D_at4qo")
 position = Vector2(465, 68)
 energy = 0.6
 texture = SubResource("GradientTexture2D_at4qo")
+
+[node name="Washroom Puzzle" parent="." instance=ExtResource("9_stkaa")]
+position = Vector2(397, 288)
+x_size = 3
+quest_name = "washroom cheese"
+required_item = "Sliced Cheese"
+message_fail = "It sounds like River might be in there..."
+message_success = "Maybe I can slide the cheese under the door..."
+
+[node name="Desk Puzzle" parent="." instance=ExtResource("9_stkaa")]
+position = Vector2(746, 587)
+x_size = 4
+quest_name = "note"
+required_item = "Pixelated Note"
+message_fail = "There's nothing I can do here now."
+message_success = "I should see if I can figure out the note."

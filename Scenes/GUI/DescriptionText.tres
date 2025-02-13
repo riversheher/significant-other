@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b5qfpcuuy7fk1"]
+
+[ext_resource type="FontFile" uid="uid://b0u46jqlornir" path="res://Assets/Fonts/GoMono/GoMonoNerdFont-Bold.ttf" id="1_1lb7u"]
+
+[resource]
+font = ExtResource("1_1lb7u")
+font_size = 10
+font_color = Color(0.0745098, 0.0745098, 0.0745098, 0.784314)

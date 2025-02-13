@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq2abeqgrwaqk"]
+
+[ext_resource type="PackedScene" uid="uid://d4lnxvnh0wmf1" path="res://Scenes/Credits/scenes/end_credits/end_credits.tscn" id="1_rfpn5"]
+
+[node name="credits" type="CanvasLayer"]
+
+[node name="EndCredits" parent="." instance=ExtResource("1_rfpn5")]
+current_speed = 0.2

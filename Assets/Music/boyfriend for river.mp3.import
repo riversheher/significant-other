@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://60om5jeo88y3"
+path="res://.godot/imported/boyfriend for river.mp3-4fefcb4243febe44e8d4dd7912429926.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/boyfriend for river.mp3"
+dest_files=["res://.godot/imported/boyfriend for river.mp3-4fefcb4243febe44e8d4dd7912429926.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

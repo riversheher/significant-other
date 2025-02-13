@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxq78orxf7qq4"]
+
+[ext_resource type="AudioStream" uid="uid://c6pxbaxpdtj4e" path="res://Assets/Music/Default_Playlist.tres" id="1_3ukx0"]
+[ext_resource type="Script" path="res://_Globals/audio_player.gd" id="1_l5sku"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_3ukx0")
+volume_db = -12.0
+autoplay = true
+script = ExtResource("1_l5sku")

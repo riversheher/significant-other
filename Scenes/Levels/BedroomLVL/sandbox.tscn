@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://couwlit3b5tu8"]
+[gd_scene load_steps=16 format=3 uid="uid://couwlit3b5tu8"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_4w3bu"]
 [ext_resource type="PackedScene" uid="uid://bdmralx81s3is" path="res://Scenes/Bedroom/bedroom.tscn" id="2_0d5mo"]
@@ -6,33 +6,41 @@
 [ext_resource type="PackedScene" uid="uid://dqyglj8x7dfab" path="res://Scenes/InventoryItem/inventory_item.tscn" id="5_3sm1f"]
 [ext_resource type="PackedScene" uid="uid://bg6gn5gjma8g8" path="res://Scenes/Transition/level_transition.tscn" id="5_t2fa1"]
 [ext_resource type="Texture2D" uid="uid://kufl0l26bkdm" path="res://Assets/Items/00.png" id="6_lc48r"]
+[ext_resource type="AudioStream" uid="uid://c60d3a7qn8xt1" path="res://Assets/SFX/keys jingling - single.wav" id="7_154qa"]
+[ext_resource type="PackedScene" uid="uid://t51fppanojrx" path="res://Scenes/PuzzleArea/puzzle_area.tscn" id="7_gcfpc"]
+[ext_resource type="Texture2D" uid="uid://bbqbmg48qk31v" path="res://Assets/Items/06.png" id="8_f6klx"]
+[ext_resource type="AudioStream" uid="uid://chikej1ftmtab" path="res://Assets/SFX/paper-245786.mp3" id="9_e2o00"]
+[ext_resource type="Texture2D" uid="uid://co2f2stwws3gh" path="res://Assets/Items/panties10.png" id="10_8e54o"]
 
-[sub_resource type="Gradient" id="Gradient_gjio4"]
+[sub_resource type="Gradient" id="Gradient_exdtj"]
 offsets = PackedFloat32Array(0, 0.214286, 0.62987)
 colors = PackedColorArray(1, 1, 1, 1, 0.580073, 0.474362, 0.252096, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_a3i3u"]
-gradient = SubResource("Gradient_gjio4")
+gradient = SubResource("Gradient_exdtj")
 width = 384
 height = 384
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_8ai27"]
+[sub_resource type="Gradient" id="Gradient_253ac"]
 offsets = PackedFloat32Array(0, 0.214286, 0.915584)
 colors = PackedColorArray(1, 1, 1, 1, 0.764191, 0.324705, 0.387657, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mapcb"]
-gradient = SubResource("Gradient_8ai27")
+gradient = SubResource("Gradient_253ac")
 width = 384
 height = 384
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="BedroomLVL" type="Node2D"]
+[node name="BedroomLVL" type="Node2D" node_paths=PackedStringArray("key_items", "puzzles")]
 script = ExtResource("1_4w3bu")
+key_items = [NodePath("Interactables/ckey")]
+puzzles = [NodePath("KeyPuzzle")]
+room_name = "bedroom"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 960.0
@@ -59,7 +67,27 @@ position = Vector2(627, 403)
 scale = Vector2(0.5, 0.5)
 item_description = "A key really important to River... I better keep it in a safe place."
 item_name = "River's Key"
+pickup_message = "I found River's Key!"
 item_texture = ExtResource("6_lc48r")
+item_sound = ExtResource("7_154qa")
+collision_size = 1.4
+
+[node name="blurry note" parent="Interactables" instance=ExtResource("5_3sm1f")]
+position = Vector2(412, 298)
+item_description = "You can't make out the text on the note. It's too blurry."
+item_name = "Blurry Note"
+pickup_message = "A note from River!  I need to find my glasses."
+item_texture = ExtResource("8_f6klx")
+item_sound = ExtResource("9_e2o00")
+
+[node name="panties" parent="Interactables" instance=ExtResource("5_3sm1f")]
+position = Vector2(363, 453)
+rotation = 1.88151
+scale = Vector2(0.640002, 0.640002)
+item_description = "It looks clean, but it definitely doesn't smell clean."
+item_name = "Dirty Panties"
+pickup_message = "EEEYA! I should have washed these."
+item_texture = ExtResource("10_8e54o")
 
 [node name="Lighting" type="Node2D" parent="."]
 
@@ -74,3 +102,11 @@ texture = SubResource("GradientTexture2D_a3i3u")
 [node name="PointLight2D2" type="PointLight2D" parent="Lighting"]
 position = Vector2(359, 228)
 texture = SubResource("GradientTexture2D_mapcb")
+
+[node name="KeyPuzzle" parent="." instance=ExtResource("7_gcfpc")]
+position = Vector2(577, 289)
+y_size = 3
+quest_name = "bedroom window"
+required_item = "River's Key"
+message_fail = "I wonder if I could distract River from here..."
+message_success = "Maybe I can throw River's key out the window..."

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://vws7ioq53tdf"]
+
+[ext_resource type="Texture2D" uid="uid://xw4auehke0ca" path="res://Assets/qr-for-game-blog.png" id="1_5wb0r"]
+
+[node name="QR" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8.71278, 8.702)
+color = Color(0.0784314, 0.0666667, 0.0588235, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 324.0
+offset_bottom = 324.0
+texture = ExtResource("1_5wb0r")

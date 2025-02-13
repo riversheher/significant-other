@@ -5,8 +5,11 @@ class_name Player extends CharacterBody2D
 @export var state: String = "idle"
 @export var direction: String = "front"
 
+var can_move: bool = true
+
 @onready var inv_ui: CanvasLayer = $InvUI
 @onready var interact_sprite: Sprite2D = $interact_sprite
+@onready var qr: CanvasLayer = $QR
 
 # pressed_keys keeps track of which keys are currently pressed, and is used to determine
 # the player's state.
@@ -26,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 
+	
 	var is_running: bool = Input.is_action_pressed("run")
 	
 	# Set the state of the character based on which key has just been pressed
@@ -56,7 +60,10 @@ func _process(delta: float) -> void:
 	elif state == "run" and not is_running:
 		state = "walk"
 
-
+	
+	if !can_move:
+		state = "idle"
+	
 	$AnimatedSprite2D.animation = state + "_" + direction
 	$AnimatedSprite2D.play()
 
@@ -121,4 +128,11 @@ func process_movement() -> void:
 			velocity = movement * WALK_SPEED
 			
 func reset_state() -> void:
+	pressed_keys = {}
 	state = "idle"
+	
+func show_qr() -> void:
+	qr.show()
+	
+func hide_qr() -> void:
+	qr.hide()

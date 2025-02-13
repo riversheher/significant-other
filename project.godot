@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Significant Other"
+run/main_scene="res://Scenes/GUI/OpeningMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,12 +21,18 @@ PlayerManager="*res://_Globals/player_manager.gd"
 LevelManager="*res://_Globals/level_manager.gd"
 SceneTransition="*res://Scenes/Transition/scene_transition.tscn"
 InventoryManager="*res://_Globals/inventory_manager.gd"
+AudioPlayer="*res://_Globals/AudioPlayer.tscn"
+GameState="*res://_Globals/GameState.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godottpd/plugin.cfg", "res://addons/maaacks_credits_scene/plugin.cfg")
 
 [global_group]
 
@@ -63,12 +70,23 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+next={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Demon"
 2d_physics/layer_5="Objects"
+
+[maaacks_credits_scene]
+
+disable_plugin_dialogues=true
+copy_path="res://Scenes/Credits"
 
 [rendering]
 

@@ -10,7 +10,6 @@ enum SIDE { LEFT, RIGHT, FRONT, BACK }
 @export var target_trans_area: String = "LevelTransition"
 
 @export_category("Collision Area")
-
 # When size is changed, the area of the rectangle will update
 # This works inside the editor as well, since this is annotated as a tool script
 @export_range(1,12,1,"or_greater") var size: int = 2:
@@ -63,7 +62,6 @@ func _update_area() -> void:
 		
 # Signal Connections
 func _player_entered(_body: Node2D) -> void:
-	print("Player has entered transition area")
 	if level == null:
 		print("no level connected")
 		return

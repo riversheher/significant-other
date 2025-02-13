@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c60d3a7qn8xt1"
+path="res://.godot/imported/keys jingling - single.wav-a2b182e389f7e12af346498f55fcdd09.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/keys jingling - single.wav"
+dest_files=["res://.godot/imported/keys jingling - single.wav-a2b182e389f7e12af346498f55fcdd09.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

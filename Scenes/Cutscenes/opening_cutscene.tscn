@@ -246,7 +246,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 4.46667, 9.03333, 14, 22, 25, 26, 28, 29, 32, 35, 38, 40),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["<heavy, menaging breathing from outside the door>", "Oh my god!  River is not supposed to be here... she can't be here!!!", "Don't worry my love... I will protect you from the horrors of the night... You don't need to worry about crazy stalkers like her when I'm with you!", "Don't worry Kat... I'll protect you...  Wait here, I'll go deal with this crazy bitch.", "I'll make sure she regrets ever coming!", "I'll make sure she regrets ever coming!", "W...wait....", "W...wait....", "OH SHIT!", "OH SHIT!", "IT'S CHINESE!!!", "IT'S CHINESE!!!", "... I need to get out of here..."]
+"values": ["<heavy, menacing breathing from outside the door>", "Oh my god!  River is not supposed to be here... she can't be here!!!", "Don't worry my love... I will protect you from the horrors of the night... You don't need to worry about crazy stalkers like her when I'm with you!", "Don't worry Kat... I'll protect you...  Wait here, I'll go deal with this crazy bitch.", "I'll make sure she regrets ever coming!", "I'll make sure she regrets ever coming!", "W...wait....", "W...wait....", "OH SHIT!", "OH SHIT!", "IT'S CHINESE!!!", "IT'S CHINESE!!!", "... I need to get out of here..."]
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
